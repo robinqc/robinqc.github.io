@@ -1,0 +1,51 @@
+---
+import HTMLBase from '../../components/HTMLBase.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
+const posts = [
+    {
+        id: 1,
+        title: 'Hello World',
+        content: 'This is my first post!' 
+    },
+    {
+        id: 2,
+        title: 'Hello World',
+        content: 'This is my first post!' 
+    },
+    {
+        id: 3,
+        title: 'Hello World',
+        content: 'This is my first post!' 
+    }
+]
+export const getStaticPaths = (() => {
+    return [
+        {
+            params: {
+                post: 1,
+            }
+        },
+        {
+            params: {
+                post: 2,
+            }
+        },
+        {
+            params: {
+                post: 3,
+            }
+        }
+    ];
+});
+
+const { post } = Astro.params;
+const data = posts.find((p) => p.id == post);
+---
+<HTMLBase>
+    <MainLayout slot="body">
+        <div slot="content">
+            <h1>{data.title}</h1>
+            <p>{data.content}</p>
+        </div>
+    </MainLayout>
+</HTMLBase>
