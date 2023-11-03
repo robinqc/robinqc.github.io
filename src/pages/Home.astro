@@ -1,0 +1,49 @@
+---
+import BlogsGrid from '../components/BlogsGrid.astro';
+---
+    <div slot="content">
+        <h2 class="welcome">BIENVENIDO</h2>
+        <h2 class="blog">blog.robinqc</h2>
+        <p class="description">Hola! soy Robin y te encontraste con mi blog. Aquí publico muchas cosas; programación, videojuegos, modding, navegación de los siete mares ;)</p>
+        <div class="whitespace" />
+        <h2 class="latest-post">ÚLTIMOS POSTS</h2>
+        <BlogsGrid />
+    </div>
+
+    <style>
+        .whitespace {
+            height: 10rem;
+        }
+        .welcome {
+            display: inline;
+            font-size: 10rem;
+            color: black;
+            padding: 0;
+            margin: 0;
+            
+        }
+        .blog {
+            display: inline-block;
+            font-size: 3rem;
+            color: white;
+            margin-left: -4rem;
+            margin-top: 4rem;
+            font-weight: lighter;
+            text-shadow: 4px 4px 0px rgba(0,0,0,1);
+            font-family: 'Rocket pop';
+        }
+        .description {
+            font-size: 1.5rem;
+            color: black;
+            font-weight: bold;
+            width: 50%;
+            padding-left: 1rem;
+        }
+        .latest-post {
+            font-size: 2rem;
+            color: black;
+            font-weight: lighter;
+            padding-left: 1rem;
+            font-family: 'Rocket pop';
+        }
+    </style>

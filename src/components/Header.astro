@@ -1,0 +1,128 @@
+---
+import { Icon } from 'astro-icon';
+import Background from './Background.astro';
+const { title } = Astro.props;
+---
+
+<Background/>
+<header class="header">
+    <div class="header__title">
+        <h1>{ title }</h1>
+    </div>
+    <div class="header__menu">
+        <nav>
+            <ul>
+                <li><a href="/">Blog</a></li>
+                <li><a href="/categories">Categories</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="header__social">
+        <Icon pack="mdi" name="linkedin"/>
+        <Icon pack="mdi" name="github"/>
+        <Icon pack="dashicons" name="youtube"/>
+    </div>
+</header>
+
+<style>
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        height: 80px;
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+    }
+    .header h1 {
+        color: #CEFF1A;
+        transition: color 0.2s;
+        width: 20vw;
+        text-align: center;
+        font-size: 5rem;
+        line-height: 1ch;
+        margin-left: 3rem;
+        text-shadow: 0px 0px 10px rgba(112,255,0,0.6);
+        transform: rotate(-4.6deg);
+        font-family: 'Rocket pop 3d';
+        font-weight: normal;
+    }
+    .header__title {
+        display: inline-block;
+        padding-left: 1rem;
+        height: 80px;
+        width: 20vw;
+        align-items: center;
+        flex-grow: 0;
+        padding-right: 1rem;
+    }
+
+    .header__menu {
+        display: flex;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 100px;
+        width:  70%;
+        flex-grow: 1;
+        flex-direction: row;
+        justify-content: center;
+        transform: rotate(-4.5deg);
+    }
+    .header h1:hover {
+        color: white;
+        cursor: pointer;
+    }
+    li {
+        display: inline-block;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    li a {
+        color: black;
+        transition: color 0.2s;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+    li a:hover {
+        color: white;
+        cursor: pointer;
+    }
+    ul {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    nav {
+        display: inline-block;
+        align-self: center;
+        padding:0;
+        margin:0;
+    }
+    .header__social {
+        display: flex;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 80px;
+        width: 20vw;
+        flex-grow: 0;
+        justify-content: center;
+        align-items: center;
+        font-size: small;
+        transform: rotate(-4deg);
+    }
+    [astro-icon] {
+        height: 2rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        transition: color 0.2s;
+        
+    }
+    [astro-icon]:hover {
+        color: white;
+        cursor: pointer;
+    }
+</style>

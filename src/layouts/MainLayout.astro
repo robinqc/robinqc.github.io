@@ -1,0 +1,19 @@
+---
+import Header from '../components/Header.astro';
+
+const { title } = Astro.props;
+---
+
+<Header title="blog.robinqc"/>
+<div class="container">
+    <slot name="content"></slot>
+</div>
+
+<style>
+    .container {
+        padding-top: 100px;
+        color: black;
+        width: 80%;
+        margin: 0 auto;
+    }
+</style>
