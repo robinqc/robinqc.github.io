@@ -1,42 +1,32 @@
 ---
+import { MongoClient } from 'mongodb';
 import HTMLBase from '../../components/HTMLBase.astro';
 import MainLayout from '../../layouts/MainLayout.astro';
-const posts = [
-    {
-        id: 1,
-        title: 'Hello World',
-        content: 'This is my first post!' 
-    },
-    {
-        id: 2,
-        title: 'Hello World',
-        content: 'This is my first post!' 
-    },
-    {
-        id: 3,
-        title: 'Hello World',
-        content: 'This is my first post!' 
-    }
-]
-export const getStaticPaths = (() => {
-    return [
-        {
+export const uri = 'mongodb+srv://robinquinteroc:nachov1ve@robinqcdb.f13qmph.mongodb.net/?retryWrites=true&w=majority';
+export const client = new MongoClient(uri);
+
+export async function getPosts() {
+    const posts = await client.db('robinqc').collection('posts').find().toArray();
+    return posts.map((post) => {
+        return {
+            id: post._id.toString(),
+            title: post.title,
+            content: post.content,
+        }
+    });
+}
+export const posts = await getPosts();
+
+export async function getStaticPaths() {
+    return posts.map((post) => {
+        console.log(post);
+        return {
             params: {
-                post: 1,
-            }
-        },
-        {
-            params: {
-                post: 2,
-            }
-        },
-        {
-            params: {
-                post: 3,
+                post: post.id,
             }
         }
-    ];
-});
+    });
+}
 
 const { post } = Astro.params;
 const data = posts.find((p) => p.id == post);
