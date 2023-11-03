@@ -1,13 +1,43 @@
-# Astro + React Example
 
-```sh
-npm create astro@latest -- --template framework-react
+# @robinqc Blog [Future landing page and portfolio]
+
+I started this project just to have a place where i can upload bits of knowledge i know i'll go back to and use in the future. Maybe somebody else finds it useful too...
+
+
+
+
+## What i'm using
+
+- [Astro](https://astro.build/) to dynamically generate the static files served to the readers, this is really cool
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database) as my cloud managed database, writing backend is boring...
+- Little bits of [React](https://react.dev/) here and there (i might be switching to something else like Preact or Solid, not that it affects much but i wanna try something new)
+- Of course, [Github Pages](https://pages.github.com/) to host this
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/robinqc/robinqc.github.io
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/framework-react) 
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/framework-react)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/framework-react/devcontainer.json)
+Go to the project directory
 
-This example showcases Astro working with [React](https://react.dev).
+```bash
+  cd robinqc.github.io
+```
 
-Write your React components as `.jsx` or `.tsx` files in your project.
+Install dependencies
+
+```bash
+  yarn
+```
+
+Start the server
+
+```bash
+  yarn dev
+```
+
