@@ -3,27 +3,27 @@ interface BlogPostProps {
     title: string;
     description: string;
     author: string;
-    link: string;
+    slug: string;
     thumbnail: string;
 }
 const {
     title,
     description,
     author,
-    link,
+    slug,
     thumbnail
 } = Astro.props as BlogPostProps;
 ---
 
 <div class="blog-post">
     <div class="img-container">
-        <a href={link}>
+        <a href={Astro.url.pathname+ 'posts/' + slug}>
             <img src={thumbnail} alt={title} />
         </a>    
     </div>
     <div class="blog-post__content">
         <h2 class="blog-post__title">
-            <a href={link}>{title}</a>
+            <a href={Astro.url.pathname+ 'posts/' + slug}>{title}</a>
         </h2>
         <p class="blog-post__description">{description}</p>
         <p class="blog-post__author">By {author}</p>
@@ -42,11 +42,12 @@ const {
         flex-grow: 1;
         border-radius: 10px;
         transition: all 0.2s ease-in-out;
+        border-color: #CEFF1A;
     }
 
     .blog-post:hover {
         box-sizing: border-box;
-        border: 3px solid black;
+        border: 3px solid #CEFF1A;
         scale: 1.02;
         cursor: pointer;
     }

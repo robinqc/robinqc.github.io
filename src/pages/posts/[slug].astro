@@ -1,0 +1,29 @@
+---
+import HTMLBase from '../../components/HTMLBase.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getPosts } from '../../utils/db';
+
+
+export const posts = await getPosts();
+
+export async function getStaticPaths() {
+    return posts.map((post) => {
+        return {
+            params: {
+                slug: post.slug,
+            }
+        }
+    });
+}
+
+const { slug } = Astro.params;
+const data = posts.find((p) => p.slug == slug);
+---
+<HTMLBase>
+    <MainLayout slot="body">
+        <div slot="content">
+            <h1>{data.title}</h1>
+            <p>{data.content}</p>
+        </div>
+    </MainLayout>
+</HTMLBase>
